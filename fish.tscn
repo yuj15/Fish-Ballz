@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccvc5ite2atb1"]
+
+[ext_resource type="PackedScene" uid="uid://ca1vdtf0mpkeg" path="res://Player/player.tscn" id="1_vw5wg"]
+[ext_resource type="Script" path="res://Player/player.gd" id="2_p18er"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t7lgu"]
+
+[node name="world" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_vw5wg")]
+position = Vector2(328, 277)
+script = ExtResource("2_p18er")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(834, 706)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D3"]
+position = Vector2(-643, -6)
+polygon = PackedVector2Array(-270, -297, 105, -263, 304, -210, 364, -40, -134, -230)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1251, 1059)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D2"]
+position = Vector2(-356, -320)
+polygon = PackedVector2Array(-270, -297, 105, -263, 304, -210, 364, -40, -134, -230)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(417, 353)
+physics_material_override = SubResource("PhysicsMaterial_t7lgu")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(355, 66)
+polygon = PackedVector2Array(-270, -297, 105, -263, 304, -210, 364, -40, -134, -230)
