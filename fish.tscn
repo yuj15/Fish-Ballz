@@ -1,34 +1,35 @@
 [gd_scene load_steps=4 format=3 uid="uid://ccvc5ite2atb1"]
 
-[ext_resource type="PackedScene" uid="uid://ca1vdtf0mpkeg" path="res://Player/player.tscn" id="1_vw5wg"]
-[ext_resource type="Script" path="res://Player/player.gd" id="2_p18er"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t7lgu"]
+[ext_resource type="PackedScene" uid="uid://dv5ewe6ak81a1" path="res://move_fishie.tscn" id="1_c3gxg"]
+[ext_resource type="PackedScene" uid="uid://ccb00ehwrvlx7" path="res://weed_of_the_sea.tscn" id="2_cnvcu"]
+[ext_resource type="PackedScene" uid="uid://bxf2b5vxax6ul" path="res://evildood.tscn" id="2_rf4d8"]
 
 [node name="world" type="Node2D"]
+y_sort_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("1_vw5wg")]
-position = Vector2(328, 277)
-script = ExtResource("2_p18er")
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -15.0
+offset_top = -9.0
+offset_right = 1150.0
+offset_bottom = 663.0
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(834, 706)
+[node name="Move_fishie" parent="." instance=ExtResource("1_c3gxg")]
+position = Vector2(202, 180)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D3"]
-position = Vector2(-643, -6)
-polygon = PackedVector2Array(-270, -297, 105, -263, 304, -210, 364, -40, -134, -230)
+[node name="evildood" parent="." instance=ExtResource("2_rf4d8")]
+position = Vector2(332, 340)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(1251, 1059)
+[node name="weed of the sea" parent="." instance=ExtResource("2_cnvcu")]
+position = Vector2(560, 327)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D2"]
-position = Vector2(-356, -320)
-polygon = PackedVector2Array(-270, -297, 105, -263, 304, -210, 364, -40, -134, -230)
+[node name="weed of the sea2" parent="." instance=ExtResource("2_cnvcu")]
+position = Vector2(914, 218)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(417, 353)
-physics_material_override = SubResource("PhysicsMaterial_t7lgu")
+[node name="weed of the sea3" parent="." instance=ExtResource("2_cnvcu")]
+position = Vector2(84, 436)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(355, 66)
-polygon = PackedVector2Array(-270, -297, 105, -263, 304, -210, 364, -40, -134, -230)
+[node name="weed of the sea4" parent="." instance=ExtResource("2_cnvcu")]
+position = Vector2(785, 408)
+
+[node name="weed of the sea5" parent="." instance=ExtResource("2_cnvcu")]
+position = Vector2(402, 61)
