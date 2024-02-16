@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccb00ehwrvlx7"]
 
-[ext_resource type="Texture2D" uid="uid://bsevcjmhhss42" path="res://seaweed.png" id="1_opuac"]
+[ext_resource type="Texture2D" uid="uid://bsevcjmhhss42" path="res://fish game/seaweed.png" id="1_vb85r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxb7o"]
 size = Vector2(31, 11)
@@ -10,7 +10,7 @@ size = Vector2(31, 11)
 [node name="Seaweed" type="Sprite2D" parent="."]
 position = Vector2(16, 3)
 scale = Vector2(0.0732422, 0.0732422)
-texture = ExtResource("1_opuac")
+texture = ExtResource("1_vb85r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4.5, 15.5)

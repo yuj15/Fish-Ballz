@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://dv5ewe6ak81a1"]
+
+[ext_resource type="Script" path="res://fish game/Move_fishie.gd" id="1_q37xo"]
+[ext_resource type="Texture2D" uid="uid://nem34xrw0a8g" path="res://fish game/fishspritesheet.png" id="2_ssgyc"]
+[ext_resource type="PackedScene" uid="uid://of2htug0o1kb" path="res://fish game/pew_pew.tscn" id="3_usmrw"]
+
+[sub_resource type="Animation" id="Animation_ucb4y"]
+resource_name = "Idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uw15e"]
+_data = {
+"Idle": SubResource("Animation_ucb4y")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aeiix"]
+radius = 53.0094
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(64, 55)
+script = ExtResource("1_q37xo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(139, 2)
+scale = Vector2(0.284239, 0.284239)
+texture = ExtResource("2_ssgyc")
+
+[node name="fish" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_uw15e")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_aeiix")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 1)
+
+[node name="pew pew" parent="." instance=ExtResource("3_usmrw")]

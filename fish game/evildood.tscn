@@ -1,18 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxf2b5vxax6ul"]
 
-[ext_resource type="Texture2D" uid="uid://b2awk11cmkgd7" path="res://evildood.png" id="1_5rxxd"]
-[ext_resource type="Script" path="res://evildood.gd" id="1_tx4hg"]
+[ext_resource type="Script" path="res://fish game/evildood.gd" id="1_o81yp"]
+[ext_resource type="Texture2D" uid="uid://b2awk11cmkgd7" path="res://fish game/evildood.png" id="2_mn65x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jwlns"]
 radius = 33.0
 
 [node name="evildood" type="CharacterBody2D"]
-script = ExtResource("1_tx4hg")
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_o81yp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(92.5, 37.5)
 scale = Vector2(0.0883789, 0.0883789)
-texture = ExtResource("1_5rxxd")
+texture = ExtResource("2_mn65x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(93, 39)

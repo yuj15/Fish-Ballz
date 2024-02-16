@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Fish Ballz"
-run/main_scene="res://fish.tscn"
+run/main_scene="res://fish game/fish.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://fish game/icon.svg"
 
 [input]
 

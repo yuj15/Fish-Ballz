@@ -12,3 +12,4 @@ func _physics_process(delta):
 	#global_position is defined as where this character is in the world
 	velocity = direction * 300.0 
 	move_and_slide()
+	

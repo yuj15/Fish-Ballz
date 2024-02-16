@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2awk11cmkgd7"
-path="res://.godot/imported/evildood.png-d9bcc4e92e110093fa3ac16554d2b174.ctex"
+uid="uid://bcgv0tu61dw66"
+path="res://.godot/imported/Silly_Placeholders.png-0e0420a08c4c028f97651a8635002a67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://evildood.png"
-dest_files=["res://.godot/imported/evildood.png-d9bcc4e92e110093fa3ac16554d2b174.ctex"]
+source_file="res://Silly_Placeholders.png"
+dest_files=["res://.godot/imported/Silly_Placeholders.png-0e0420a08c4c028f97651a8635002a67.ctex"]
 
 [params]
 
