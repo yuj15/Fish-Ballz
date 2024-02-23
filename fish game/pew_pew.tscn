@@ -1,32 +1,151 @@
-[gd_scene load_steps=4 format=3 uid="uid://of2htug0o1kb"]
+[gd_scene load_steps=21 format=3 uid="uid://of2htug0o1kb"]
 
+[ext_resource type="Script" path="res://fish game/animatepewpew.gd" id="1_3vkvn"]
 [ext_resource type="Script" path="res://fish game/pew_pew.gd" id="1_grx1v"]
-[ext_resource type="Texture2D" uid="uid://bgahiqrj8dxad" path="res://fish game/watergun.png" id="2_ea30a"]
+[ext_resource type="Texture2D" uid="uid://b7jxre0acjhqt" path="res://fish game/Ray-gun.png" id="3_eocc8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ifj2"]
 radius = 504.385
 
-[node name="pew pew" type="Area2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvd5y"]
+atlas = ExtResource("3_eocc8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc044"]
+atlas = ExtResource("3_eocc8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wire4"]
+atlas = ExtResource("3_eocc8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pduxb"]
+atlas = ExtResource("3_eocc8")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oy6ue"]
+atlas = ExtResource("3_eocc8")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gspjj"]
+atlas = ExtResource("3_eocc8")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1xd2"]
+atlas = ExtResource("3_eocc8")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgxet"]
+atlas = ExtResource("3_eocc8")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dywl"]
+atlas = ExtResource("3_eocc8")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw7jt"]
+atlas = ExtResource("3_eocc8")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pesdy"]
+atlas = ExtResource("3_eocc8")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhef3"]
+atlas = ExtResource("3_eocc8")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p162o"]
+atlas = ExtResource("3_eocc8")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t2mj"]
+atlas = ExtResource("3_eocc8")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkfdw"]
+atlas = ExtResource("3_eocc8")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_etkyt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvd5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc044")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wire4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pduxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oy6ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gspjj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1xd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgxet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dywl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw7jt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pesdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhef3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p162o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t2mj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkfdw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_3vkvn")
+
+[node name="pew pew" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_grx1v")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pew pew"]
 shape = SubResource("CircleShape2D_8ifj2")
 
-[node name="pewpewmove" type="Marker2D" parent="."]
+[node name="pewpewmove" type="Marker2D" parent="pew pew"]
 
-[node name="Watergun" type="Sprite2D" parent="pewpewmove"]
-position = Vector2(94, -27)
-scale = Vector2(0.175781, 0.175781)
-texture = ExtResource("2_ea30a")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="pew pew/pewpewmove"]
+texture_filter = 1
+position = Vector2(95, 0)
+scale = Vector2(2.55772, 2.55772)
+sprite_frames = SubResource("SpriteFrames_etkyt")
 
-[node name="pewpod" type="Marker2D" parent="pewpewmove/Watergun"]
+[node name="pewpod" type="Marker2D" parent="pew pew/pewpewmove/AnimatedSprite2D"]
 unique_name_in_owner = true
-position = Vector2(238.933, 0)
+position = Vector2(11.7292, 0)
+scale = Vector2(0.175781, 0.175781)
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="pew pew"]
 wait_time = 0.3
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="pew pew/Timer" to="pew pew" method="_on_timer_timeout"]

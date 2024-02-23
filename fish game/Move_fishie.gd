@@ -5,10 +5,10 @@ func _physics_process(delta):
 	velocity = direction * 600
 	move_and_slide()
 	
-	#this next part is when I add animations just remove"#"
+
 	#if velocity.length() > 0.0:
-	#	get_node("animation").play_movement_animation()
+		##get_node("animation").play_movement_animation()
 	#else:
-	#	get_node("animation").play_idle_animation()
+		#get_node("animation").play_idle_animation()
 	
 	

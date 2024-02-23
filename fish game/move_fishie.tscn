@@ -1,39 +1,111 @@
-[gd_scene load_steps=7 format=3 uid="uid://dv5ewe6ak81a1"]
+[gd_scene load_steps=17 format=3 uid="uid://dv5ewe6ak81a1"]
 
+[ext_resource type="Script" path="res://fish game/animation.gd" id="1_oxbn8"]
 [ext_resource type="Script" path="res://fish game/Move_fishie.gd" id="1_q37xo"]
-[ext_resource type="Texture2D" uid="uid://nem34xrw0a8g" path="res://fish game/fishspritesheet.png" id="2_ssgyc"]
+[ext_resource type="Texture2D" uid="uid://dmq7tibt5wn6j" path="res://idle_fish.png" id="2_s4wwt"]
 [ext_resource type="PackedScene" uid="uid://of2htug0o1kb" path="res://fish game/pew_pew.tscn" id="3_usmrw"]
 
-[sub_resource type="Animation" id="Animation_ucb4y"]
-resource_name = "Idle"
+[sub_resource type="AtlasTexture" id="AtlasTexture_puf8c"]
+atlas = ExtResource("2_s4wwt")
+region = Rect2(0, 0, 1024, 1024)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_uw15e"]
-_data = {
-"Idle": SubResource("Animation_ucb4y")
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_edua4"]
+atlas = ExtResource("2_s4wwt")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa0ca"]
+atlas = ExtResource("2_s4wwt")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igdn5"]
+atlas = ExtResource("2_s4wwt")
+region = Rect2(0, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dd0c"]
+atlas = ExtResource("2_s4wwt")
+region = Rect2(1024, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmxd1"]
+atlas = ExtResource("2_s4wwt")
+region = Rect2(2048, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4d1w"]
+atlas = ExtResource("2_s4wwt")
+region = Rect2(0, 2048, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1qva"]
+atlas = ExtResource("2_s4wwt")
+region = Rect2(1024, 2048, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gk3y"]
+atlas = ExtResource("2_s4wwt")
+region = Rect2(2048, 2048, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkd10"]
+atlas = ExtResource("2_s4wwt")
+region = Rect2(0, 3072, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uvedb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_puf8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edua4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa0ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igdn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dd0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmxd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4d1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1qva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gk3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkd10")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aeiix"]
 radius = 53.0094
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_oxbn8")
+
+[node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(64, 55)
 script = ExtResource("1_q37xo")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(139, 2)
-scale = Vector2(0.284239, 0.284239)
-texture = ExtResource("2_ssgyc")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
+position = Vector2(1, -1)
+scale = Vector2(0.123535, 0.123535)
+sprite_frames = SubResource("SpriteFrames_uvedb")
+animation = &"idle"
 
-[node name="fish" type="AnimationPlayer" parent="Sprite2D"]
-libraries = {
-"": SubResource("AnimationLibrary_uw15e")
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_aeiix")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 1)
 
-[node name="pew pew" parent="." instance=ExtResource("3_usmrw")]
+[node name="pew pew" parent="Player" instance=ExtResource("3_usmrw")]
+position = Vector2(-1, 1)
