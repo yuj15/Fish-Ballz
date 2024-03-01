@@ -7,15 +7,16 @@
 radius = 33.0
 
 [node name="evildood" type="CharacterBody2D"]
+position = Vector2(-2, 1)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_o81yp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(92.5, 37.5)
+position = Vector2(0.499992, -2.50001)
 scale = Vector2(0.0883789, 0.0883789)
 texture = ExtResource("2_mn65x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(93, 39)
+position = Vector2(0.999992, -1.00001)
 shape = SubResource("CircleShape2D_jwlns")
