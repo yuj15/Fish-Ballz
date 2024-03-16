@@ -12,3 +12,6 @@ position = Vector2(288, 200)
 [node name="evildood" parent="." instance=ExtResource("2_61jna")]
 visible = false
 position = Vector2(279, 390)
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
