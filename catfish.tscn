@@ -1,0 +1,216 @@
+[gd_scene load_steps=20 format=3 uid="uid://bk60iak0y8uq5"]
+
+[ext_resource type="Texture2D" uid="uid://2frco15tv503" path="res://fish game/catFishMovement_all_64x64.png" id="1_n06n2"]
+[ext_resource type="Script" path="res://catfish_cow.gd" id="1_t1m1v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nwgsm"]
+radius = 16.0312
+
+[sub_resource type="Animation" id="Animation_277gb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_2qen8"]
+resource_name = "idle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_lkvcg"]
+resource_name = "idle_left"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_thpxw"]
+resource_name = "idle_righy"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_brw1f"]
+resource_name = "idle_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_syrmy"]
+resource_name = "walk_down"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [21, 22, 23]
+}
+
+[sub_resource type="Animation" id="Animation_7nt1h"]
+resource_name = "walk_left"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [18, 19, 20]
+}
+
+[sub_resource type="Animation" id="Animation_7egse"]
+resource_name = "walk_right"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [12, 13, 14]
+}
+
+[sub_resource type="Animation" id="Animation_3cear"]
+resource_name = "walk_up"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [15, 16, 17]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cgxov"]
+_data = {
+"RESET": SubResource("Animation_277gb"),
+"idle": SubResource("Animation_2qen8"),
+"idle_left": SubResource("Animation_lkvcg"),
+"idle_right": SubResource("Animation_thpxw"),
+"idle_up": SubResource("Animation_brw1f"),
+"walk_down": SubResource("Animation_syrmy"),
+"walk_left": SubResource("Animation_7nt1h"),
+"walk_right": SubResource("Animation_7egse"),
+"walk_up": SubResource("Animation_3cear")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tffd0"]
+animation = &"idle_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_03csl"]
+animation = &"walk_right"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_msabk"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2y6l1"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uflrl"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_21k0y"]
+states/idle_right/node = SubResource("AnimationNodeAnimation_tffd0")
+states/idle_right/position = Vector2(323, 126)
+states/walk_right/node = SubResource("AnimationNodeAnimation_03csl")
+states/walk_right/position = Vector2(502, 114.5)
+transitions = ["Start", "idle_right", SubResource("AnimationNodeStateMachineTransition_msabk"), "idle_right", "walk_right", SubResource("AnimationNodeStateMachineTransition_2y6l1"), "walk_right", "idle_right", SubResource("AnimationNodeStateMachineTransition_uflrl")]
+
+[node name="catfish" type="Node2D"]
+
+[node name="catfish_cow" type="CharacterBody2D" parent="."]
+script = ExtResource("1_t1m1v")
+
+[node name="Sprite2D" type="Sprite2D" parent="catfish_cow"]
+position = Vector2(1.90735e-06, 1)
+scale = Vector2(0.898438, 0.898438)
+texture = ExtResource("1_n06n2")
+hframes = 3
+vframes = 8
+frame = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="catfish_cow"]
+shape = SubResource("CircleShape2D_nwgsm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="catfish_cow"]
+libraries = {
+"": SubResource("AnimationLibrary_cgxov")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="catfish_cow"]
+tree_root = SubResource("AnimationNodeStateMachine_21k0y")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+
+[node name="Timer" type="Timer" parent="catfish_cow"]
+
+[connection signal="timeout" from="catfish_cow/Timer" to="catfish_cow" method="_on_timer_timeout"]
