@@ -56,3 +56,60 @@ func pick_new_state():
 
 func _on_timer_timeout():
 	pick_new_state()
+
+
+#attack function
+
+#extends KinematicBody2D
+
+# Variables
+var speed = 200
+var attackRange = 50
+var attackDamage = 10
+var attackCooldown = 1.0
+var lastAttackTime = 0.0
+
+var attackSound # Add your attack sound here
+
+func _readyy():
+	pass # Initialization code goes here
+
+func _process(delta):
+	# Movement logic (You can customize this based on your game's needs)
+	var movement = Vector2.ZERO
+	if Input.is_action_pressed("move_right"):
+		movement.x += 1
+	if Input.is_action_pressed("move_left"):
+		movement.x -= 1
+	if Input.is_action_pressed("move_down"):
+		movement.y += 1
+	if Input.is_action_pressed("move_up"):
+		movement.y -= 1
+
+	# Normalize the movement vector to avoid faster diagonal movement
+	movement = movement.normalized()
+
+	# Move the character
+	move_and_slide(movement * speed)
+
+	# Attack logic
+	if Input.is_action_just_pressed("attack") and can_attack():
+		attack()
+		lastAttackTime = OS.get_system_time()
+
+func can_attack():
+	# Check if enough time has passed since the last attack
+	return OS.get_system_time() >= lastAttackTime + attackCooldown
+
+func attack():
+	# Perform attack logic here (e.g., detect enemies within range and deal damage to them)
+	var enemies = get_tree().get_nodes_in_group("enemies") # Assuming enemies are in a group called "enemies"
+
+for enemy in enemies:
+	var distance = self.global_position.distance_to(enemy.global_position)
+	if distance <= attackRange:
+		enemy.take_damage(attackDamage)
+
+	# Play attack sound for when i get it
+	#if attackSound:
+		#$AudioStreamPlayer.play(attackSound)

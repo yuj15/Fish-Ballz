@@ -189,6 +189,9 @@ transitions = ["Start", "idle_right", SubResource("AnimationNodeStateMachineTran
 
 [node name="catfish_cow" type="CharacterBody2D" parent="."]
 script = ExtResource("1_t1m1v")
+move_speed = null
+idle_time = null
+walk_time = null
 
 [node name="Sprite2D" type="Sprite2D" parent="catfish_cow"]
 position = Vector2(1.90735e-06, 1)
@@ -196,7 +199,6 @@ scale = Vector2(0.898438, 0.898438)
 texture = ExtResource("1_n06n2")
 hframes = 3
 vframes = 8
-frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="catfish_cow"]
 shape = SubResource("CircleShape2D_nwgsm")
